@@ -1,0 +1,22 @@
+{
+    "status": "0",
+    "message": "成功",
+    "data": {
+        "firstX": [
+            "船舶抵港-准许卸货",
+            "卸船完成-报关申报",
+            "准许卸货-卸船完成",
+            "报关申报-报关放行"
+        ],
+        "firstY": [
+            9,
+            56,
+            5,
+            10
+        ],
+        "secondX": null,
+        "secondY": null,
+        "thirdX": null,
+        "thirdY": null
+    }
+}

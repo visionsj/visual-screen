@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>全国口岸通关时效概览</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <script src="<%= htmlWebpackPlugin.options.assetsPublicPath %>static/js/<%= htmlWebpackPlugin.options.dllJsFileName %>"></script>
+    <script src="<%= htmlWebpackPlugin.options.assetsPublicPath %>static/viewport-units-buggyfill.js"></script>
+</body>
+<script>
+    window.onload = function() {
+        window.viewportUnitsBuggyfill.init({
+            hacks: window.viewportUnitsBuggyfillHacks
+        });
+    }
+</script>
+
+</html>

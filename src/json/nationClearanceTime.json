@@ -1,0 +1,97 @@
+{
+    "status": "0",
+    "message": "成功",
+    "data": {
+        "statistics": {
+            "importTime": "22",
+            "importPercent": "43",
+            "exportTime": "66",
+            "exportPercent": "11"
+        },
+        "importTimeBarOpt": {
+            "xdate": [
+                "浙江",
+                "江苏",
+                "安徽",
+                "上海"
+            ],
+            "ydate": [
+                1,
+                3,
+                77,
+                35
+            ]
+        },
+        "exportTimeBarOpt": {
+            "xdate": [
+                "浙江",
+                "江苏",
+                "安徽",
+                "上海"
+            ],
+            "ydate": [
+                2,
+                4,
+                33,
+                63
+            ]
+        },
+        "importRateBarOpt": {
+            "xdate": [
+                "浙江",
+                "江苏",
+                "安徽",
+                "上海"
+            ],
+            "ydate": [
+                1,
+                11,
+                5,
+                45
+            ]
+        },
+        "exportRateBarOpt": {
+            "xdate": [
+                "浙江",
+                "江苏",
+                "安徽",
+                "上海"
+            ],
+            "ydate": [
+                2,
+                22,
+                4,
+                56
+            ]
+        },
+        "items": [{
+                "name": "浙江",
+                "exportTime": "2",
+                "exportPercent": "2",
+                "imporTime": "1",
+                "importPercent": "1"
+            },
+            {
+                "name": "江苏",
+                "exportTime": "4",
+                "exportPercent": "22",
+                "imporTime": "3",
+                "importPercent": "11"
+            },
+            {
+                "name": "安徽",
+                "exportTime": "33",
+                "exportPercent": "4",
+                "imporTime": "77",
+                "importPercent": "5"
+            },
+            {
+                "name": "上海",
+                "exportTime": "63",
+                "exportPercent": "56",
+                "imporTime": "35",
+                "importPercent": "45"
+            }
+        ]
+    }
+}
