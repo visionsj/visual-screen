@@ -269,18 +269,6 @@ export default {
           padding: 0,
           borderWidth: 0,
           borderRadius: 0,
-          formatter: function (param) {
-            var s = ''
-            if (param.data) {
-              s = '<div style="text-align:center; padding: 2% 5%; font-size:120%; background: #ff9c1a">'
-                + (param.data.name || '') + '</div><div style="text-align:left;padding: 5%;">进口：'
-                + (param.data.imporTime || '0') + '小时<br />出口：'
-                + (param.data.exportTime || '0') + '小时<br />进口压缩比：'
-                + (param.data.importPercent || '0') + '%<br />出口压缩比：'
-                + (param.data.exportPercent || '0') + '%</div>'
-            }
-            return s
-          },
           axisPointer: {            // 坐标轴指示器，坐标轴触发有效
             type: 'shadow'          // 默认为直线，可选为：'line' | 'shadow'
           }
@@ -397,50 +385,11 @@ export default {
           },
           data: []
         }]
-      },
-
-      importTimeBarOpt: {},
-      importRateBarOpt: {},
-      exportTimeBarOpt: {},
-      exportRateBarOpt: {}
+      }
     }
   },
   mounted() {
-    // 进口通关时效压缩比
-    this.importTimeBarOpt = deepClone(this.echartBarOpt)
-
-    this.importRateBarOpt = deepClone(this.echartBarOpt)
-
-    // this.importRateBarOpt.series[0].name = "通关时效压缩比"
-    this.importRateBarOpt.yAxis[0].name = "百分比"
-    this.importRateBarOpt.yAxis[0].max = 100
-    // this.importRateBarOpt.tooltip.formatter = '{b0}<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#fd970f"></span>{a0}:{c0}' + '%'
-    this.importRateBarOpt.yAxis[0].axisLabel.formatter = '{value}'
-
-
-    this.importRateBarOpt.series[0].itemStyle.color.colorStops = [{
-      offset: 0, color: '#14ccfe' // 0% 处的颜色
-    }, {
-      offset: 1, color: '#015ee9' // 100% 处的颜色
-    }]
-
-    // 出口通关时效
-    this.exportTimeBarOpt = deepClone(this.echartBarOpt)
-
-    this.exportRateBarOpt = deepClone(this.echartBarOpt)
-    // this.exportRateBarOpt.series[0].name = "通关时效压缩比"
-    this.exportRateBarOpt.yAxis[0].name = "百分比"
-    this.exportRateBarOpt.yAxis[0].max = 100
-
-    // this.exportRateBarOpt.tooltip.formatter = '{b0}<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#fd970f"></span>{a0}:{c0}' + '%'
-    this.exportRateBarOpt.yAxis[0].axisLabel.formatter = '{value}'
-    this.exportRateBarOpt.series[0].itemStyle.color.colorStops = [{
-      offset: 0, color: '#14ccfe' // 0% 处的颜色
-    }, {
-      offset: 1, color: '#015ee9' // 100% 处的颜色
-    }]
-
-    this.getNationData()
+      this.getNationData()
   },
   computed: {
     ...mapState({
@@ -457,17 +406,6 @@ export default {
     status: function (valNew, valOld) {
       if (valNew !== valOld) {
         this.getNationData()
-        if (valNew == '3') {
-          this.importTimeBarOpt.xAxis[0].axisLabel.rotate = 45
-          this.exportTimeBarOpt.xAxis[0].axisLabel.rotate = 45
-          this.importRateBarOpt.xAxis[0].axisLabel.rotate = 45
-          this.exportRateBarOpt.xAxis[0].axisLabel.rotate = 45
-        } else {
-          this.importTimeBarOpt.xAxis[0].axisLabel.rotate = 0
-          this.exportTimeBarOpt.xAxis[0].axisLabel.rotate = 0
-          this.importRateBarOpt.xAxis[0].axisLabel.rotate = 0
-          this.exportRateBarOpt.xAxis[0].axisLabel.rotate = 0
-        }
       }
     }
   },
@@ -500,18 +438,6 @@ export default {
           this.mapOpt.series[0].data = mapItems // 地图
         }
 
-
-        this.importTimeBarOpt.xAxis[0].data = res.data.importTimeBarOpt.xdate  // 柱状图
-        this.importTimeBarOpt.series[0].data = res.data.importTimeBarOpt.ydate
-
-        this.importRateBarOpt.xAxis[0].data = res.data.importRateBarOpt.xdate
-        this.importRateBarOpt.series[0].data = res.data.importRateBarOpt.ydate
-
-        this.exportTimeBarOpt.xAxis[0].data = res.data.exportTimeBarOpt.xdate
-        this.exportTimeBarOpt.series[0].data = res.data.exportTimeBarOpt.ydate
-
-        this.exportRateBarOpt.xAxis[0].data = res.data.exportRateBarOpt.xdate
-        this.exportRateBarOpt.series[0].data = res.data.exportRateBarOpt.ydate
 
         this.starScroll()
       })
